@@ -186,12 +186,12 @@
     id labelOffset = tabsStyle[@"labelOffset"];
     if (labelOffset && labelOffset != (id)[NSNull null])
     {
-      id x = imageInsets[@"x"];
-      id y = imageInsets[@"y"];
+      id x = labelOffset[@"x"];
+      id y = labelOffset[@"y"];
       
       CGFloat xP = x != (id)[NSNull null] ? [RCTConvert CGFloat:x] : 0;
       CGFloat yP = y != (id)[NSNull null] ? [RCTConvert CGFloat:y] : 0;
-      [viewController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(xp,yP)];
+      [viewController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(xP,yP)];
     }
     
     

@@ -1,7 +1,7 @@
 {
   "name": "react-native-navigation",
-  "version": "1.1.86",
-  "description": "React Native Navigation - truly native navigation for iOS and Android",
+  "version": "1.1.87",
+  "description": "React Native Navigation - truly native navigation for iOS and Android fork https://github.com/wix/react-native-navigation",
   "license": "MIT",
   "nativePackage": true,
   "author": "Tal Kol <talkol@gmail.com>",
@@ -11,11 +11,11 @@
   "bugs": {
     "url": "https://github.com/wix/react-native-navigation/issues"
   },
-  "homepage": "https://github.com/wix/react-native-navigation",
-  "readme": "https://github.com/wix/react-native-navigation#readme",
+  "homepage": "https://github.com/hyl2015/react-native-navigation",
+  "readme": "https://github.com/hyl2015/react-native-navigation#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wix/react-native-navigation.git"
+    "url": "https://github.com/hyl2015/react-native-navigation.git"
   },
   "main": "src/index.js",
   "scripts": {
