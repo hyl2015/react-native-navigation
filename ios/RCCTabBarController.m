@@ -87,6 +87,15 @@
   NSDictionary *tabsStyle = props[@"style"];
   if (tabsStyle)
   {
+    
+    NSNumber *tabBarHeight = tabsStyle[@"tabBarHeight"];
+    
+    if(tabBarHeight){
+      self.tabHeight=[tabBarHeight intValue];
+    }else{
+      self.tabHeight= 49;
+    }
+    
     NSString *tabBarButtonColor = tabsStyle[@"tabBarButtonColor"];
     if (tabBarButtonColor)
     {
@@ -173,6 +182,18 @@
     viewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:iconImage tag:0];
     viewController.tabBarItem.accessibilityIdentifier = tabItemLayout[@"props"][@"testID"];
     viewController.tabBarItem.selectedImage = iconImageSelected;
+
+    id labelOffset = tabsStyle[@"labelOffset"];
+    if (labelOffset && labelOffset != (id)[NSNull null])
+    {
+      id x = imageInsets[@"x"];
+      id y = imageInsets[@"y"];
+      
+      CGFloat xP = x != (id)[NSNull null] ? [RCTConvert CGFloat:x] : 0;
+      CGFloat yP = y != (id)[NSNull null] ? [RCTConvert CGFloat:y] : 0;
+      [viewController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(xp,yP)];
+    }
+    
     
     id imageInsets = tabItemLayout[@"props"][@"iconInsets"];
     if (imageInsets && imageInsets != (id)[NSNull null])
@@ -400,6 +421,14 @@
     UIViewController *topViewController = [navigationController topViewController];
     [RCCTabBarController sendTabEvent:event controller:topViewController body:body];
   }
+}
+
+
+- (void)viewWillLayoutSubviews{
+  CGRect tabFrame = self.tabBar.frame;
+  tabFrame.size.height = self.tabHeight;
+  tabFrame.origin.y = self.view.frame.size.height - self.tabHeight;
+  self.tabBar.frame = tabFrame;
 }
 
 
